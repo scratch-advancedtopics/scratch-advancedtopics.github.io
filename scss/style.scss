@@ -1,7 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+@mixin roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+@mixin roboto-mono {
+  font-family: 'Roboto Mono', monospace;
+}
+
 body {
-  font-family: "Roboto", sans-serif;
+  @include roboto;
   margin: 0;
   padding: 0;
   color: #555;
@@ -12,37 +21,39 @@ h1, h2, h3, strong {
 }
 
 h1 {
-  font-family: "Roboto Mono", monospace;
+  @include roboto-mono;
   user-select: none;
   font-size: 3em;
   margin-bottom: 0;
 }
 
-@media (max-width: 725px) {
+@media (max-width:725px) {
   h1 {
     font-size: 2em;
   }
 }
+
 a {
   color: #777;
   text-decoration: none;
-}
-a:not(nav a) {
-  border-bottom: 2px solid #ddd;
-  transition-property: background-color;
-  transition-duration: 0.2s;
-}
-a:not(nav a):hover {
-  background-color: #eee;
+  &:not(nav a) {
+    border-bottom: 2px solid #ddd;
+    transition-property: background-color;
+    transition-duration: 0.2s;
+    &:hover {
+      background-color: #eee;
+    }
+  }
 }
 
 nav {
-  font-family: "Roboto Mono", monospace;
+  @include roboto-mono;
   user-select: none;
   background-color: #090C19;
 }
 
 /* LAYOUT */
+
 .flex {
   display: flex;
   align-items: center;
@@ -63,6 +74,7 @@ nav {
 }
 
 /* COLORS */
+
 .dark-1 {
   color: white;
 }
