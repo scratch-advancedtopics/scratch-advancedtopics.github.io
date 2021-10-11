@@ -11,15 +11,21 @@ h1, h2, h3, strong {
   color: #090C19;
 }
 
-h1 {
+.header {
   font-family: "Roboto Mono", monospace;
   user-select: none;
   font-size: 3em;
   margin-bottom: 0;
 }
+.header .light-2 {
+  text-shadow: 0 4px 4px rgba(0, 215, 51, 0.2);
+}
+.header .light-1 {
+  text-shadow: 0 4px 4px rgba(221, 221, 221, 0.5);
+}
 
 @media (max-width: 725px) {
-  h1 {
+  .header {
     font-size: 2em;
   }
 }
