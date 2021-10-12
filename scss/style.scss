@@ -14,10 +14,11 @@ body {
   margin: 0;
   padding: 0;
   color: #555;
+  background: #090C19;
 }
 
 h1, h2, h3, strong {
-  color: #090C19;
+  color: white;
 }
 
 a {
@@ -36,7 +37,18 @@ a {
 nav {
   @include roboto-mono;
   user-select: none;
-  background-color: #090C19;
+  background-color: #0c1022;
+  .navlink {
+    position: relative;
+    &:hover::after {
+    content: '█';
+    animation: blink 1.3s infinite;
+    position: absolute;
+    bottom: 1px;
+    right: -10px;
+    color: #22FE56;
+  }
+}
 }
 
 .header {
@@ -117,4 +129,24 @@ nav {
 
 .light-2 {
   color: #00d733;
+}
+
+/* ANIMATIONS */
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
