@@ -2,6 +2,8 @@ name: Scratch Studio Members
 on:
   schedule:
     - cron: "0 12 * * *"
+  workflow_dispatch:
+  
 jobs:
   Scratch_Studio_Members:
     runs-on: ubuntu-latest
