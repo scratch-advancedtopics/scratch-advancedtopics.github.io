@@ -10,4 +10,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: python3 curators.py
-    
+      - run: git commit -m "Workflows auto update"
