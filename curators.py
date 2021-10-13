@@ -19,6 +19,5 @@ def main():
 		i = json.loads(i)
 		out.append(i)
 	return out
-if __name__ == '__main__':
-  with open('curators.json','w') as f:
-	  json.dump(main(),f)
+with open('curators.json','w') as f:
+	json.dump(main(),f)
