@@ -10,8 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: python3 .github/workflows/scripts/curators.py
-      - run: cat curators.json
       - run: git config --local user.email "action@github.com"
       - run: git config --local user.name "GitHub Action"
-      - run: git commit -m "Workflows auto update" -a
+      - run: git commit -m 'Github Actions Update File' .github/workflows/scripts/curators.py
       - run: git push
