@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: python3 .github/workflows/scripts/curators.py
+      - run: python3 /.github/workflows/scripts/curators.py
       - run: git config --local user.email "action@github.com"
       - run: git config --local user.name "GitHub Action"
-      - run: git commit -m 'Github Actions Update File' .github/workflows/scripts/curators.py
+      - run: git commit -m 'Github Actions Update File' /.github/workflows/scripts/curators.py
       - run: git push
