@@ -12,5 +12,5 @@ jobs:
       - run: python3 curators.py
       - run: git config --local user.email "action@github.com"
       - run: git config --local user.name "GitHub Action"
-      - run: git commit -m 'Github Actions Update File' -a || echo "No changes in API"
+      - run: git commit -m 'Github Actions Update File' -a
       - run: git push
