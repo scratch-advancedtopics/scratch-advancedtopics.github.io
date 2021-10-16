@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: python3 curators.py
-      - run: git config --local user.email "action@github.com"
-      - run: git config --local user.name "GitHub Action"
+      - run: git config user.name 'github-actions[bot]'
+      - run: git config user.email 'github-actions[bot]@users.noreply.github.com'
       - run: git commit -m 'Github Actions Update File' -a
       - run: git push
