@@ -18,7 +18,7 @@ def main():
 	for i in get_users('curators'):
 		i = json.loads(i)
 		out.append(i)
-	for i in get_users('manager'):
+	for i in get_users('managers'):
 		i = json.loads(i)
 		out.append(i)
 	out = sorted(out,lambda d:d['username'])
