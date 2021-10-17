@@ -21,7 +21,7 @@ def main():
 	for i in get_users('managers'):
 		i = json.loads(i)
 		out.append(i)
-	out = sorted(out,key=lambda k:k[0]['username'],reverse=True)
+	# out = sorted(out,key=lambda k:k[0]['username'],reverse=True)
 	return out
 with open('members.json','w') as f:
 	json.dump(main(),f)
