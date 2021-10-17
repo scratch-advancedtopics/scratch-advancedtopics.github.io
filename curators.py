@@ -1,11 +1,11 @@
 import urllib.request
 import json
 
-def get_users(a):
+def get_users(status):
 	offset = 0
 	out = []
 	while True:
-		contents = urllib.request.urlopen(f"https://api.scratch.mit.edu/studios/30152868/{a}?offset={offset}").read()
+		contents = urllib.request.urlopen(f"https://api.scratch.mit.edu/studios/30152868/{status}?offset={offset}").read()
 		contents = contents.decode('utf-8')
 		if contents == '[]':
 			break
@@ -21,6 +21,7 @@ def main():
 	for i in get_users('manager'):
 		i = json.loads(i)
 		out.append(i)
+	out = sorted(out,lambda d:d['username'])
 	return out
 with open('members.json','w') as f:
 	json.dump(main(),f)
