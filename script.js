@@ -8,7 +8,7 @@
     // }
 //   });
 
-fetch('curators.json')
+fetch('members.json')
   .then(res => res.json())
   .then(res => {
     res = res[0];
