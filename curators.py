@@ -1,3 +1,4 @@
+from operator import itemgetter
 import urllib.request
 import json
 
@@ -21,7 +22,7 @@ def main():
 	for i in get_users('managers'):
 		i = json.loads(i)
 		out.append(i)
-	out = sorted(out,key=lambda d:d['username'])
+	out = sorted(out,key=itemgetter('username'),reverse=True)
 	return out
 with open('members.json','w') as f:
 	json.dump(main(),f)
