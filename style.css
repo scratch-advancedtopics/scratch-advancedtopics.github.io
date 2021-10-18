@@ -116,6 +116,10 @@ nav .navlink:hover::after {
   margin: 0.5em;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .content {
   margin: 0 auto;
   max-width: 50em;
@@ -140,7 +144,7 @@ nav .navlink:hover::after {
 }
 
 .light-1 {
-  color: var(--txt-primary);
+  color: var(--border);
 }
 
 .light-2 {
