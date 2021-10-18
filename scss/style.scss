@@ -1,58 +1,94 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
-@mixin roboto {
-  font-family: 'Roboto', sans-serif;
-}
+:root {
+  --bg-primary:#ffffff;
+  --bg-secondary:#090C19;
+  --txt-primary:#090C19;
+  --txt-secondary:#777777;
+  --txt-tertiary:#38393F;
+  --border:#ddd;
+  --accent:0, 219, 66;
 
-@mixin roboto-mono {
-  font-family: 'Roboto Mono', monospace;
+  &.dark {
+    --bg-primary:#090C19;
+    --bg-secondary:#0c1022;
+    --txt-primary:#ffffff;
+    --txt-secondary:#777777;
+    --txt-tertiary:#38393F;
+    --border:#eee;
+    --accent:34, 254, 86;
+  }
 }
 
 body {
-  @include roboto;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-  color: #555;
+  color: var(--text-secondary);
+  background-color: var(--bg-primary);
 }
 
 h1, h2, h3, strong {
-  color: #090C19;
+  color: var(--txt-primary);
 }
 
 a {
-  color: #777;
+  color: var(--txt-secondary);
   text-decoration: none;
+
   &:not(nav a, .exclude) {
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid var(--border);
     transition-property: background-color;
     transition-duration: 0.2s;
+
     &:hover {
-      background-color: #eee;
+      background-color: var(--border);
     }
   }
 }
 
 nav {
-  @include roboto-mono;
+  font-family: "Roboto Mono", monospace;
   user-select: none;
-  background-color: #090C19;
+  background-color: var(--bg-secondary);
+
+  .navlink {
+    position: relative;
+  }
+
+  .navlink-right {
+    margin-left: auto;
+    margin-right: 2em;
+  }
+
+  .navlink:hover::after {
+    content: "█";
+    animation: blink 1.3s infinite;
+    position: absolute;
+    bottom: 1px;
+    right: -10px;
+    color: rgb(var(--accent));
+  }
 }
 
 .header {
-  @include roboto-mono;
+  font-family: "Roboto Mono", monospace;
   user-select: none;
   font-size: 3em;
   margin-bottom: 0;
-  & .light-2 {
-    text-shadow: 0 4px 4px rgba(0, 215, 51, 0.2);
+
+  .light-2 {
+    text-shadow: 0 4px 4px rgba(var(--accent), 0.2);
   }
-  & .light-1 {
+
+  .light-1 {
     text-shadow: 0 4px 4px rgba(221, 221, 221, 0.5);
   }
 }
 
-@media (max-width:725px) {
+@media (max-width: 725px) {
   .header {
     font-size: 2em;
   }
@@ -61,14 +97,15 @@ nav {
 .avatar {
   width: 100px;
   height: 100px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   border-radius: 50%;
-  box-shadow: 0 4px 16px -4px rgba(221, 221, 221, 1);
+  box-shadow: 0 4px 16px -4px var(--txt-secondary);
   cursor: pointer;
   transition-property: box-shadow;
   transition-duration: 0.2s;
+
   &:hover {
-    box-shadow: 0 8px 16px -4px rgba(221, 221, 221, 1);
+    box-shadow: 0 8px 16px -4px var(--txt-secondary);
   }
 }
 
@@ -85,10 +122,6 @@ nav {
 
 .flex-item {
   margin: 0.5em;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
 }
 
 .content {
@@ -108,17 +141,40 @@ nav {
 }
 
 .dark-2 {
-  color: #22FE56;
+  color: rgb(var(--accent));
 }
 
 .dark-3 {
-  color: #38393F;
+  color: var(--txt-tertiary);
 }
 
 .light-1 {
-  color: #ddd;
+  color: var(--txt-primary);
 }
 
 .light-2 {
-  color: #00d733;
+  color: rgb(var(--accent));
+}
+
+/* ANIMATIONS */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  49% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  99% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
