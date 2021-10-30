@@ -3,14 +3,20 @@ on:
   schedule:
     - cron: "0 12 * * *"
   workflow_dispatch:
-  
+
 jobs:
-  Scratch_Studio_Members:
+  studio-members-sync:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: python3 curators.py
+      - uses: actions/setup-node@v2.4.1
+        with:
+          node-version: 14.x
+      - run: |
+          yarn
+          node scripts/update-members
+
       - run: git config user.name 'github-actions[bot]'
       - run: git config user.email 'github-actions[bot]@users.noreply.github.com'
-      - run: git commit -m 'Github Actions Update File' -a
+      - run: git commit -m '[ci] updating members' -a
       - run: git push
