@@ -1,7 +1,7 @@
 fetch('members.json')
   .then(res => res.json())
-  .then(res => {
-    res = res[0].concat(res[1]);
+  .then(data => {
+    const res = [...data[0], ...data[1]]
     const div = document.getElementById('members');
     for (let i = 0; i < res.length; i++) {
       let el = document.createElement('div');
